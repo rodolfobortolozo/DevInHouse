@@ -1,6 +1,5 @@
 var numero = 0;
 var resultado = 0;
-var paragrafo = document.getElementById('paragrafo')
 
 //Laço de REpetição para Calculo
 while(numero != -1){
