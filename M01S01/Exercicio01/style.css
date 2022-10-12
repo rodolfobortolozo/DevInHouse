@@ -1,0 +1,17 @@
+h1{
+    background-image: url("imagens/fundoh1.jpg");
+    background-repeat: no-repeat;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+    color:white;
+}
+
+p{
+    font-size: 14px;
+}
+
+a{
+    padding: 10px;
+    border: solid 2px;
+    margin: 20px;
+}
