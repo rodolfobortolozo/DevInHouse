@@ -18,4 +18,4 @@ for(var i=0;i<=numero;i++){
 
 }
 
-alert(`A quantidade de números pares de 0 até ${numero} é de ${qtdpar} pares e ${qtdimpar} ímpares !`);
+alert(`A quantidade é de ${qtdpar} pares e ${qtdimpar} ímpares !`);
