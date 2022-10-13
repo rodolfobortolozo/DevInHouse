@@ -27,13 +27,13 @@ inicioInverno = new Date(ano,09,22);
 fimInverno = new Date(ano,12,21);
 
 
-if(dataAtual>=inicioVerao & dataAtual<=fimVerao){
+if(dataAtual>=inicioVerao && dataAtual<=fimVerao){
     alert('Verão');
 }else 
-    if(dataAtual>=inicioOutono & dataAtual<=fimOutono){
+    if(dataAtual>=inicioOutono && dataAtual<=fimOutono){
         alert('Outono');
     }else 
-        if(dataAtual>=inicioInverno & dataAtual<=fimInverno){
+        if(dataAtual>=inicioInverno && dataAtual<=fimInverno){
             alert('Inverno');
         }else{
             alert('Primavera')
