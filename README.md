@@ -4,9 +4,6 @@
 
 # DEVin[Philips] - M1S02: Exercícios da Semana 2
 
-![Afafa](images/dih.png)
-
-
  Este repositório contém os exercícios do curso <strong>DEVinHouse</strong>  edição <strong>Philips</strong>.
 
 ## It's LIVE: [IR PARA O APP](https://dih-philips-m1s02-exercises.herokuapp.com/index.html)
