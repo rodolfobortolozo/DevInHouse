@@ -13,10 +13,12 @@ DEVinHouse tem duração de 9 meses: 3 meses por módulo, com intervalo de uma s
 
 ![Afafa](imagens/dev.png)
 
+![Afafa](imagens/galera.png)
+
  Este repositório contém os exercícios do curso <strong>DEVinHouse</strong>  edição <strong>Philips</strong>.
 
 ## Módulo: 1
 
-## Semana: 01
+### Semana: 01
 
-## Semana: 02
+### Semana: 02
