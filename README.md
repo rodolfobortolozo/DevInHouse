@@ -2,7 +2,7 @@
 <strong>O DEVinHouse é um programa de formação de talentos, com uma proposta inovadora, ágil e mão na massa realizado em parceria com empresas que desejam captar e formar talentos.</strong>
 
 
-# DEVin[Philips] - M1S02: Exercícios da Semana 2
+# DEVin[Philips]
 
  Este repositório contém os exercícios do curso <strong>DEVinHouse</strong>  edição <strong>Philips</strong>.
 
