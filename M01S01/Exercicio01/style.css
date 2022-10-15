@@ -1,17 +1,60 @@
-h1{
-    background-image: url("imagens/fundoh1.jpg");
-    background-repeat: no-repeat;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 20px;
-    color:white;
+h1 {
+  background-image: url("imagens/fundoh1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 20px;
+  color: white;
+  padding: 10px;
 }
 
-p{
-    font-size: 14px;
+p {
+  font-size: 14px;
 }
 
-a{
-    padding: 10px;
-    border: solid 2px;
-    margin: 20px;
+a {
+  padding: 10px;
+  border: solid 2px;
+  margin: 20px;
+}
+
+.coluna {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+.carrocel::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.video{
+    padding-bottom: 30px;
+}
+
+.menu{
+    overflow: hidden;
+    background-color: darkgrey;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.menu a{
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.menu a:hover{
+    background: #ddd;
+    color: black;
+    transition: all 0.5s ease-out;  
 }
