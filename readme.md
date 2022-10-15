@@ -6,6 +6,9 @@
 
  Este repositório contém os exercícios do curso <strong>DEVinHouse</strong>  edição <strong>Philips</strong>.
 
+## It's LIVE: [IR PARA O APP](https://dih-philips-m1s02-exercises.herokuapp.com/index.html)
+
+
 ## Módulo: 1
 
 ## Semana: 01
