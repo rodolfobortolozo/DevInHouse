@@ -1,12 +1,11 @@
 var valorInicial = 0;
 var valorRaiz = 0;
-var ProgAritmetica = 0;
 var lista = [];
 
 valorInicial = parseInt(prompt("Informe o valor Inicial"));
 valorRaiz = parseInt(prompt("Informe o valor Inicial"));
 
-ProgAritmetica = valorInicial;
+var ProgAritmetica  = valorInicial;
 
 for(var i=0;i<10;i++){
 
