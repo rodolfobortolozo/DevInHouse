@@ -30,7 +30,7 @@ fimInverno = new Date(ano,12,21);
 if(dataAtual>=inicioVerao && dataAtual<=fimVerao){
     alert('Verão');
 }else 
-    if(dataAtual>=inicioOutono && dataAtual<=fimOutono){
+    if( dataAtual<=fimOutono){
         alert('Outono');
     }else 
         if(dataAtual>=inicioInverno && dataAtual<=fimInverno){
