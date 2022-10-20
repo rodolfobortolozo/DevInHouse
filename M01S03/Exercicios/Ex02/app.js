@@ -1,8 +1,4 @@
 
-const mensagemOla = (nome) => {
-
-    return `Olá, ${nome}`
-
-};
+const mensagemOla = nome => `Olá, ${nome}`;
 
 console.log(mensagemOla('Rodolfo'));

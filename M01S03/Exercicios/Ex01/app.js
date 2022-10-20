@@ -12,18 +12,28 @@ const ex7 = [20,10, 30]
 
 const procuraMinMax = (lista) => {
 
-    let numMaior;
-    let numMenor;
- 
-    lista.forEach(element => {
-        if(element>numMaior){
-            numMaior=element
+    let numMaior = -Infinity;
+    let numMenor = Infinity;
+    
+    if( !Array.isArray(lista) || lista.length <= 1 ){
+        return 'Não foi possivel definir';
+    }
+    
+    lista.forEach(list => {
+        if(list > numMaior){
+            numMaior = list;
         }
-        if(element<numMenor){
-            numMenor=element
+        if(list < numMenor){
+            numMenor = list;
         }
     })
-    return alert(`Maior número do array ${numMaior} e o menor ${numMenor}`)
+    
+    if(numMaior == numMenor){
+        return 'Não foi possivel definir';
+    }    
+    
+    return `Maior número do array ${numMaior} e o menor ${numMenor}`;
+
 };
 
-procuraMinMax(ex1);
+console.log(procuraMinMax(ex6));
