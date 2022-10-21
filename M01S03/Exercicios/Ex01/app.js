@@ -1,4 +1,10 @@
+/*
 
+Implemente uma função "procuraMinMax" que receba como parâmetro um array (numérico) e identifique o menor e o maior valor do mesmo.
+
+Imprima no console estes valores ou "Não é possível encontrar" quando não for possível.
+
+*/
 
 const ex1 = [56, 65, 64, -3, 23, 42, -15, 65, 14, 32, 78, 70, 47]
 const ex2 = []
