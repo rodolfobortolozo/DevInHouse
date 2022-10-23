@@ -10,7 +10,25 @@ Chame a função mensagemOla e exiba o retorno desta função no console.
 
 Ajuste a função mensagemOla para que receba um parâmetro nome e retorne a mensagem "Olá, [nome]!".
 
-*/
-const mensagemOla = nome => `Olá, ${nome}`;
+Extra: Caso queira, podes experimentar criar um campo de texto, um botão e um parágrafo em index.html e 
+fazer com que a função de nome seja executada ao pressionarmos o botão, que o nome pode seja lido do campo de texto e a mensagem seja exibida no parágrafo.
 
-console.log(mensagemOla('Rodolfo'));
+*/
+const botao = document.getElementById("botao");
+
+
+botao.addEventListener("click",() =>{
+
+        let nome = document.getElementById("nome").value;
+        let paragrafo = document.getElementById("paragrafo");
+
+        return paragrafo.innerHTML = `<Strong>Olá, ${nome}</strong>`;
+
+        }
+    );
+
+
+
+
+
+//console.log(mensagemOla('Rodolfo'));
