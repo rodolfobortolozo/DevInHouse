@@ -15,14 +15,17 @@ fazer com que a função de nome seja executada ao pressionarmos o botão, que o
 
 */
 const botao = document.getElementById("botao");
+const paragrafo = document.getElementById("paragrafo");
+
+const  mensagemOla = (nome) => `Olá, ${nome}`;
 
 
 botao.addEventListener("click",() =>{
 
         let nome = document.getElementById("nome").value;
-        let paragrafo = document.getElementById("paragrafo");
+        let retorno = mensagemOla(nome)
 
-        return paragrafo.innerHTML = `<Strong>Olá, ${nome}</strong>`;
+        return paragrafo.innerHTML = `<Strong>${retorno}</strong>`;
 
         }
     );
