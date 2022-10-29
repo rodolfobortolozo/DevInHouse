@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./assets/dicas.png" />
+    <link rel="stylesheet" href="./index.css" />
+    <script src="./index.js" async></script>
+    <title>DevInDicas</title>
+  </head>
+
+  <body>
+    <header class="header">
+      <img src="./assets/dicas.png" alt="Logo DevInDicas" />
+      <h1 class="title">DevInDicas</h1>
+    </header>
+
+    <main class="main">
+      <!-- Ínicio Form -->
+      <section>
+        <form class="form" id="form-cadastro">
+          <h2 class="subtitle">Cadastre suas dicas</h2>
+
+          <div class="row">
+            <div class="column">
+              <input class="input" placeholder="Digite o nome da dica" id="name" required />
+
+              <select class="select" id="category" required>
+                <option disabled>Selecione a categoria da dica</option>
+              </select>
+            </div>
+
+            <div class="column">
+              <textarea
+                required
+                id="description"
+                placeholder="Digite a descrição da dica"
+                rows="5"
+              ></textarea>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button class="button-secondary" type="reset">Limpar</button>
+            <button class="button-primary" type="submit">Cadastrar</button>
+          </div>
+        </form>
+      </section>
+      <!-- Fim Form -->
+
+      <!-- Ínicio totais -->
+      <section>
+        <ul id="total" class="list"></ul>
+      </section>
+      <!-- Fim totais -->
+
+      <!-- Início busca -->
+      <section class="search">
+        <input id="input-search" placeholder="Digite o nome da dica" class="input-search" />
+        <button id="button-search" class="button-search">
+          <img src="./assets//search.png" alt="Pesquisar" />
+        </button>
+      </section>
+      <!-- Fim busca -->
+
+      <!-- Ínicio lista -->
+      <section>
+        <ul id="list" class="list"></ul>
+      </section>
+      <!-- Fim lista -->
+    </main>
+  </body>
+</html>
