@@ -16,4 +16,8 @@ export class Animal{
     get idade(){
         return this.#idade;
     }
+
+    get som(){
+        return
+    }
 }

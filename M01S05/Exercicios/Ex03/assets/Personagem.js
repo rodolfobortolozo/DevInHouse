@@ -14,7 +14,7 @@ export class Personagem{
         
         this.#percentualDano = parseFloat(percentuaDano);
 
-        this.#percentualVida = this.#percentualVida -  this.#percentualDano;
+        this.#percentualVida -= this.#percentualDano;
         
         return this.#percentualVida;
 
