@@ -1,13 +1,31 @@
-import { Juros } from "./Juros.js";
+import Time from './Time.js'
+import Partida from './Partida.js'
 
-const jurosMensal = new Juros(10000,0.07,24);
+console.log('m1-s05-e7')
+// Vitória = 3 pontos
+// Derrota = 0 pontos
+// Empate  = 1 ponto
 
-console.log(jurosMensal.calcularJurosSimples());
+const times = [
+  new Time("Grêmio", "GRE"),
+  new Time("Internacional", "INT"),
+  new Time("Santos", "SAN"),
+  new Time("São Paulo", "SAO")
+]
 
-console.log(jurosMensal.calcularJurosCompostos());
+const partidas = [
+  new Partida("GRE", 2, "INT", 3),
+  new Partida("SAN", 1, "SAO", 1),
+  new Partida("INT", 1, "SAO", 2),
+  new Partida("SAN", 0, "GRE", 1)
+]
 
-const jurosAnual = new Juros(10000,0.15,10);
+partidas.forEach(partida => {
+  times.forEach(time => {
+    time.computarPartida(partida)
+  })
+})
 
-console.log(jurosAnual.calcularJurosSimples());
-
-console.log(jurosAnual.calcularJurosCompostos());
+times.forEach(time => {
+  time.exibirSituacao()
+})
