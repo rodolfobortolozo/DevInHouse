@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./index.js" async></script>
+  </head>
+  <body>
+    <h1>Posts</h1>
+    <hr />
+
+    <h2>Formulário</h2>
+    <form id="form">
+      <div>
+        <label for="codigo">Código:</label>
+        <input readonly id="codigo" />
+      </div>
+
+      <div>
+        <label for="titulo">Titulo:</label>
+        <input required id="titulo" />
+      </div>
+
+      <div>
+        <label for="descricao">Descricao:</label>
+        <textarea required id="descricao"></textarea>
+      </div>
+
+      <button type="reset">Limpar</button>
+      <button type="submit">Salvar</button>
+    </form>
+
+    <hr />
+
+    <h2>Lista</h2>
+    <ul id="lista"></ul>
+  </body>
+</html>

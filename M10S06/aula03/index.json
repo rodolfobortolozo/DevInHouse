@@ -1,0 +1,19 @@
+{
+  "nome": "Thais",
+  "idade": 20,
+  "ativo": true,
+  "endereco": {
+    "rua": "teste",
+    "numero": 123
+  },
+  "telefone": [
+    {
+      "tipo": "Celular",
+      "numero": 12121212
+    },
+    {
+      "tipo": "residencial",
+      "numero": 133121212
+    }
+  ]
+}
