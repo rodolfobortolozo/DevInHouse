@@ -248,5 +248,5 @@ formulario.addEventListener('submit', addDica);
 
 // Adiciona o evento de click ao botão para pesquisar as dicas por nome
 const buttonSearch = document.getElementById('button-search');
-buttonSearch.addEventListener('click', filtrarDicasPorNome);
+  buttonSearch.addEventListener('click', filtrarDicasPorNome);
 // Fim adição de eventos aos elementos
