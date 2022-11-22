@@ -12,9 +12,8 @@
 ###Instala ultima versão
 `npm install -g @angular/cli@latest `
 
-````ng help
-ng --version```
+`ng help`
+`ng --version`
 
 Cria projeto
-```ng new```
-````
+`ng new nome-do-projeto`
