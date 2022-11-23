@@ -17,3 +17,6 @@
 
 Cria projeto
 `ng new nome-do-projeto`
+
+Extensão angular para debugar
+Angular DevTools

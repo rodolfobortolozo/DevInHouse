@@ -1,0 +1,6 @@
+{
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=827846
+  "recommendations": [
+    "ng new exercicio-semanal --prefix=ntap --routing=false --style=scss --skip-tests"
+  ]
+}
