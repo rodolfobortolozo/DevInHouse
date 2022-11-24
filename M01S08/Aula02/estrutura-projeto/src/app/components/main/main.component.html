@@ -1,12 +1,22 @@
-<div class="container">
+<div class="container mt-5">
 
     <div class="row">
+        <h1>{{pessoa.nome}}</h1>
+        <h2>{{pessoa.sobrenome}}</h2>
         <div class="col12">
             <h1>Hello Word com Css-BootStrap</h1>
             <button type="button" class="btn btn-primary">Primary</button>
             <button type="button" class="btn btn-secondary">Secondary</button>
-            <button type="button" class="btn btn-success">Success</button>
-
+            <!-- (click)="funcaoTeste()" função main.component.ts-->
+            <button type="button" (click)="funcaoTeste()" class="btn btn-success">Success</button>
+            <!-- Iteração de Array -->
+            <h1>Lita de Pessoas</h1>
+            <ul>
+                <!-- NgFor utilizo para varrer um array -->
+                <li *ngFor="let pessoa of pessoas">
+                    {{pessoa.nome}} <small>{{pessoa.profissao}}</small>
+                </li>
+            </ul>
         </div>
     </div>
 </div>
