@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "exercicio-semanal": {
+    "loja-app": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -34,12 +34,12 @@
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "ntap",
+      "prefix": "lja",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/exercicio-semanal",
+            "outputPath": "dist/loja-app",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -87,10 +87,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "exercicio-semanal:build:production"
+              "browserTarget": "loja-app:build:production"
             },
             "development": {
-              "browserTarget": "exercicio-semanal:build:development"
+              "browserTarget": "loja-app:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -98,7 +98,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "exercicio-semanal:build"
+            "browserTarget": "loja-app:build"
           }
         },
         "test": {
@@ -124,6 +124,6 @@
     }
   },
   "cli": {
-    "analytics": "ce5f701c-dd9f-485c-8f45-3de9a74207cb"
+    "analytics": false
   }
 }
