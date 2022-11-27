@@ -6,14 +6,13 @@ import {
 } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
-import { Pessoa } from '../models/pessoa';
+import { Notification } from '../models/notification';
 
 @Injectable({
   providedIn: 'root',
 })
-export class PessoaService {
-  //URL da Api
-  URL = 'https://random-data-api.com/api/v2/users?size=10';
+export class NotificationService {
+  URL = 'http://localhost:3000/notifcacao';
 
   constructor(private httpClient: HttpClient) {}
 
@@ -22,10 +21,10 @@ export class PessoaService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
 
-  // Obtem todas as pessoas
-  getPessoas(): Observable<Pessoa[]> {
+  // Obtem todas as notificações
+  getNotifications(): Observable<Notification[]> {
     return this.httpClient
-      .get<Pessoa[]>(this.URL)
+      .get<Notification[]>(this.URL)
       .pipe(retry(2), catchError(this.handleError));
   }
 
@@ -41,6 +40,6 @@ export class PessoaService {
         `Código do erro: ${error.status}, ` + `menssagem: ${error.message}`;
     }
     console.log(errorMessage);
-    return throwError(errorMessage);
+    return throwError(() => errorMessage);
   }
 }
