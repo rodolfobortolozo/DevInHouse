@@ -24,4 +24,16 @@ export class NotificationListComponent {
         this.notifications = notifications;
       });
   }
+  //Marca como Lida
+  visualized(id: number) {
+    let index = -1;
+    index = this.notifications.findIndex((item) => item.id == id);
+    if (index != -1) {
+      if (this.notifications[index].lida) {
+        this.notifications[index].lida = false;
+      } else {
+        this.notifications[index].lida = true;
+      }
+    }
+  }
 }
