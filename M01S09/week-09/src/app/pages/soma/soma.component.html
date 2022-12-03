@@ -1,0 +1,10 @@
+<div class="container ">
+    <div>
+        <button type="button" class="btn btn-primary gap-3" (click)="somar()">+</button>
+        <button type="button" class="btn btn-danger gap-3" (click)="subtrair()">-</button>
+    </div>
+    <div class="alert alert-success" role="alert">
+        Valor: <span ngClass="text-primary : verifica() ">{{ valor }}</span>
+    </div>
+    {{infoText}}
+</div>

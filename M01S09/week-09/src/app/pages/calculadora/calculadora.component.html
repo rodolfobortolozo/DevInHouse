@@ -1,0 +1,19 @@
+<div class="container ">
+    <div>
+        <div class="alert alert-success" role="alert">
+            <h1>Calculadora Angular</h1>
+            <input type="text" class="form-control" id="num1" [(ngModel)]="num1"><br>
+            <input type="text" class="form-control" id="num2" [(ngModel)]="num2"><br>
+            <select id="operacao" class="form-select" [(ngModel)]="operacao">
+                <option value="" selected>Selecione uma operação</option>
+                <option value="Somar">Somar</option>
+                <option value="Multiplicar">Multiplicar</option>
+                <option value="Dividir">Dividir</option>
+                <option value="Subtrair">Subtrair</option>
+            </select>
+            <br>
+            <button type="button" class="btn btn-primary gap-3" (click)="calcular()">Calcular</button>
+            <br>
+            {{ resultado }}
+        </div>
+    </div>

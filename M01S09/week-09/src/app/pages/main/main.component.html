@@ -1,0 +1,15 @@
+<div class="alert alert-success" role="alert">
+    Bem - vindo {{ name }}, a página inicial!
+    <br>
+    Digite sua idade: <input [type]="type" [value]="name" [(ngModel)]="idade">
+    <!-- 
+        importo no app.modules.ts 
+        import { FormsModule } from '@angular/forms'; 
+        acrescento no declarations
+        FormsModule
+    -->
+    <br>
+    Sua idade é: {{ idade }} anos
+    <br>
+
+</div>
