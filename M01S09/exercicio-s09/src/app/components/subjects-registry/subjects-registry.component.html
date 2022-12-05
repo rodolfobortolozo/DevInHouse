@@ -1,0 +1,58 @@
+<section
+  class="registry-form container mt-5 p-4 border border-secondary rounded"
+>
+  <h2>Registro de Matérias</h2>
+
+  <form>
+    <div class="mb-3" *ngFor="let subject of registry">
+      <label for="{{ subject.id }}" class="form-label">{{
+        subject.text
+      }}</label>
+      <input
+        type="{{ subject.type }}"
+        class="form-control"
+        id="{{ subject.id }}"
+        placeholder="{{ subject.placeholder }}"
+      />
+    </div>
+    <hr />
+
+    <select class="form-select mb-3 p-2" aria-label="teacher selection">
+      <option selected disabled>Selecione o professor</option>
+      <option
+        *ngFor="let teacher of teachers; let i = index"
+        value="{{ i + 1 }}"
+      >
+        {{ teacher }}
+      </option>
+    </select>
+
+    <div class="my-3">
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="optional"
+          id="optional2"
+          checked
+        />
+        <label class="form-check-label" for="optional2">
+          Matéria obrigatória
+        </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="optional"
+          id="optional1"
+        />
+        <label class="form-check-label" for="optional1">
+          Matéria eletiva
+        </label>
+      </div>
+    </div>
+
+    <app-send-form-button></app-send-form-button>
+  </form>
+</section>

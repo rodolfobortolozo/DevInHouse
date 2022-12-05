@@ -10,6 +10,7 @@ import { SomaComponent } from './pages/soma/soma.component';
 import { AccordionComponent } from './pages/accordion/accordion.component';
 import { BotaoComponent } from './pages/botao/botao.component';
 import { CalculadoraComponent } from './pages/calculadora/calculadora.component';
+import { FormularioCadastroComponent } from './pages/formulario-cadastro/formulario-cadastro.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { CalculadoraComponent } from './pages/calculadora/calculadora.component'
     AccordionComponent,
     BotaoComponent,
     CalculadoraComponent,
+    FormularioCadastroComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],

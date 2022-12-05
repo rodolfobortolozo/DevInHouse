@@ -1,24 +1,24 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { MainComponent } from './components/main/main.component';
-import { ModalComponent } from './components/modal/modal.component';
+import { SubjectsRegistryComponent } from './components/subjects-registry/subjects-registry.component';
+import { SendFormButtonComponent } from './components/subjects-registry/send-form-button/send-form-button.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { HomeComponent } from './pages/home/home.component';
+import { ItemCardComponent } from './components/item-card/item-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    FooterComponent,
-    MainComponent,
-    ModalComponent
+    SubjectsRegistryComponent,
+    SendFormButtonComponent,
+    NavbarComponent,
+    HomeComponent,
+    ItemCardComponent
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule
+    BrowserModule
   ],
   providers: [],
   bootstrap: [AppComponent]
