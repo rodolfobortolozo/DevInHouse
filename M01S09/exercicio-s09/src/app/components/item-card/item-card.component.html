@@ -1,17 +1,13 @@
 <div class="container d-flex my-5">
   <div *ngFor="let character of characters" class="card col-4 mx-1">
-    <img
-      src="{{ character.image }}"
-      class="card-img-top"
-      alt="{{ character.name }}"
-    />
+    <img [src]="character.image" class="card-img-top" alt="{{ character.name }}" />
     <div class="card-body">
       <h3 class="card-title text-center">{{ character.name }}</h3>
       <p>
         Interpretado por:
         <a target="_blank" href="https://pt.wikipedia.org/wiki/Ian_McKellen">{{
           character.actor
-        }}</a>
+          }}</a>
       </p>
       <p class="card-text">
         {{ character.description }}
