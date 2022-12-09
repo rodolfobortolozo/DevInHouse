@@ -1,0 +1,43 @@
+<div class="container ">
+  <div class="row d-flex">
+    <div *ngFor="let item of pessoas" class="col-4 mb-2">
+      <div class="list-group">
+        <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+          <div class="d-flex gap-2 w-100 justify-content-between">
+            <div>
+              <h6 class="mb-0">{{ item.nome }}</h6>
+              <p class="mb-0 opacity-75">{{ item.profissao }}</p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<!--
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-12">
+      <h1>{{ pessoa.nome }}</h1>
+      <p>{{ pessoa.profissao }}</p>
+      <hr>
+
+      <h1>Lista de pessoas</h1>
+      <ul>
+        <li *ngFor="let item of pessoas">
+          {{ item.nome }}
+          <small> {{item.profissao}}</small>
+        </li>
+
+        <li>Fernanda <small>Product Designer</small></li>
+        <li>João <small>Marketing</small></li>
+        <li>Maria <small>Developer</small></li>
+      </ul>
+
+
+      <button (click)="salvarPessoa()" type="button" class="btn btn-primary">
+        Salvar
+      </button>
+    </div>
+  </div>
+</div> -->

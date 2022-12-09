@@ -1,0 +1,26 @@
+<main>
+  <div class="album py-5 bg-light">
+    <div class="container">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <div class="col"
+          *ngFor="let produto of produtos"
+          (click)="navegar(produto.id)"
+          >
+          <div class="card shadow-sm">
+            <img [src]="produto.urlImagem" height="225">
+            <div class="card-body">
+              <p class="card-text">{{ produto.descricao }}
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button (click)="comprarAgora(produto.titulo)" type="button" class="btn btn-sm btn-outline-secondary">Comprar agora</button>
+                  <button (click)="adicionarAoCarrinho()" type="button" class="btn btn-sm btn-outline-secondary">Adicionar ao carrinho</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>

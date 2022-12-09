@@ -24,6 +24,7 @@ export class NotificationListComponent {
         this.notifications = notifications;
       });
   }
+
   //Marca como Lida
   visualized(id: number) {
     let index = -1;
