@@ -11,6 +11,9 @@ import { HomeComponent } from './pages/home/home.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { NotfoundComponent } from './pages/notfound/notfound.component';
+import { ProdutosModule } from './pages/produtos/produtos.module';
+import { BloqueadorGuard } from './guards/bloqueador.guard';
+
 
 const ROUTES: Routes = [
   {
@@ -20,7 +23,8 @@ const ROUTES: Routes = [
   },
   {
     path: 'inicio',
-    component: HomeComponent
+    component: HomeComponent,
+
   },
   {
     path: 'inicio/:nome/:sobrenome',
@@ -32,7 +36,10 @@ const ROUTES: Routes = [
   },
   {
     path: 'sobre',
-    component: AboutComponent
+    component: AboutComponent,
+    canActivate: [
+      BloqueadorGuard
+    ],
   },
   {
     path: 'sobre/:produto',
@@ -40,7 +47,10 @@ const ROUTES: Routes = [
   },
   {
     path: 'contato',
-    component: ContactComponent
+    component: ContactComponent,
+    canDeactivate: [
+      BloqueadorGuard
+    ]
   },
   {
     path: 'contato/:id',
@@ -65,6 +75,7 @@ const ROUTES: Routes = [
   ],
   imports: [
     BrowserModule,
+    ProdutosModule,
     RouterModule.forRoot(ROUTES)
   ],
   providers: [],

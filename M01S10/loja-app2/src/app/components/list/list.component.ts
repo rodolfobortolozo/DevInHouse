@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 interface Produto {
   id: number;
@@ -35,7 +35,20 @@ export class ListComponent {
     },
   ]
 
-  constructor(private router: Router) {
+  produtosFiltrados: Produto[] = [];
+
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute
+    ) {
+
+
+  }
+
+  ngOninit() {
+    this.produtosFiltrados = this.produtos;
+     // recuperar o filtro
+      // realizar a filtragem
   }
 
   comprarAgora(nomeProduto: string) {

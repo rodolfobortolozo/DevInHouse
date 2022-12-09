@@ -1,6 +1,6 @@
 <ntap-buttons></ntap-buttons>
 <div class="list-group w-auto">
-    <a *ngFor="let notification of notifications" href="#" (click)="visualized(notification.id)"
+    <a *ngFor="let notification of notifications" (click)="visualized(notification.id)"
         class="list-group-item list-group-item-action d-flex gap-3 py-3" [ngClass]="{'msglida' : notification.lida}"
         aria-current="true">
         <img src="../assets/calendar.png" alt="twbs" width="32" height="32" class="rounded-circle flex-shrink-0">

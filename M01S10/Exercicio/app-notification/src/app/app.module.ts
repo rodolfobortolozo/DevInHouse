@@ -15,12 +15,14 @@ import { NotfoundComponent } from './notfound/notfound.component';
 const ROUTES: Routes = [
   {
     path: '',
-    // redirectTo: 'inicio',
-    // pathMatch: 'prefix',
     component: ListGroupItemComponent,
   },
   {
     path: 'inicio',
+    component: ListGroupItemComponent,
+  },
+  {
+    path: 'inicio/:status',
     component: ListGroupItemComponent,
   },
   {
