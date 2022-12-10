@@ -1,4 +1,5 @@
 <ntap-buttons></ntap-buttons>
+
 <div class="list-group w-auto">
     <a *ngFor="let notification of notifications" (click)="visualized(notification.id)"
         class="list-group-item list-group-item-action d-flex gap-3 py-3" [ngClass]="{'msglida' : notification.lida}"

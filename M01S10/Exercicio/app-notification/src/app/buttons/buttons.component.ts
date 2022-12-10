@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { NotificationListComponent } from '../notification-list/notification-list.component';
 
 @Component({
   selector: 'ntap-buttons',
@@ -7,16 +8,14 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./buttons.component.scss'],
 })
 export class ButtonsComponent {
-  constructor(private route: ActivatedRoute) {}
+  constructor(
+    private route: ActivatedRoute,
+    private notificationList: NotificationListComponent
+  ) {}
 
   ngOnInit(): void {
-    console.log('ngOnInit AboutComponent');
-
-    // console.log('Parametros: ', this.route.snapshot.params);
-    // this.itemEscolhido = this.route.snapshot.params['produto'];
     this.route.params.subscribe((params) => {
-      console.log('Parametros: ', params['status']);
-      // this.itemEscolhido = params['produto'];
+      this.notificationList.filterNotifications(params['status']);
     });
   }
 }
