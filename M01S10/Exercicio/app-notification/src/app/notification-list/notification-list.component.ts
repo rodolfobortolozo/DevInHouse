@@ -11,11 +11,13 @@ export class NotificationListComponent {
   notification = {} as Notification;
   notifications: Notification[] = [];
   notificationsFiltered: Notification[] = [];
+  status: Boolean = true;
 
   constructor(private notificationService: NotificationService) {}
 
   ngOnInit() {
     this.getNotifications();
+    console.log(this.status);
   }
 
   getNotifications() {
@@ -27,18 +29,16 @@ export class NotificationListComponent {
   }
 
   filterNotifications(pStatus: string) {
-    let status: Boolean;
-
     if (pStatus === 'lidos') {
-      status = true;
+      this.status = true;
     } else if (pStatus === 'nao-lidos') {
-      status = false;
+      this.status = false;
     } else {
       this.getNotifications();
     }
 
     this.notifications = this.notifications.filter(
-      (notification) => notification.lida == status
+      (notification) => notification.lida == this.status
     );
   }
 
@@ -51,7 +51,7 @@ export class NotificationListComponent {
         this.notifications[index].lida = false;
       } else {
         this.notifications[index].lida = true;
-        // this.notifications.splice(index, 1);
+        this.status! ? null : this.notifications.splice(index, 1);
       }
     }
   }
