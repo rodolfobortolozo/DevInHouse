@@ -1,3 +1,24 @@
 <h1>
   {{cpf | formataCpf:false}}
-</h1>
+
+  <button id="" name="" (click)="verImagem = 'Gato'">Gato</button>
+  <button id="" name="" (click)="verImagem2 = 'Cachorro'">Cachorro</button>
+  <button id="" name="" (click)="verImagem3 = 'PorqIndia'">Porquinho da India</button>
+
+  <br />
+  <img src="https://conteudo.imguol.com.br/c/entretenimento/28/2022/10/28/gato-preto-1666974144631_v2_3x4.jpg"
+    *ngIf="verImagem =='Gato'" srcset="" width="100" height="100">
+  <img src="https://conteudo.imguol.com.br/c/entretenimento/54/2020/04/28/cachorro-pug-1588098472110_v2_1x1.jpg" alt=""
+    *ngIf="verImagem2 == 'Cachorro'" srcset="" width="100" height="100">
+  <img
+    src="https://i0.wp.com/www.portaldodog.com.br/cachorros/wp-content/uploads/2022/01/cute-guinea-pig-green-grass-garden-1.jpg?fit=1000%2C667&ssl=1"
+    alt="" *ngIf="verImagem3 == 'PorqIndia'" srcset="" width="100" height="100">
+  <br />
+  <!-- Lista de Tarefas -->
+  <ul>
+    <li
+      *ngFor="let lista of listaDeTarefas; let i = index; let par = even; let impar = odd; let primeiro = first; let ultimo = last"
+      [ngClass]="{primeiroCss : primeiro, ultimoCss : ultimo, parCss : par, imparCss : impar}">
+      {{lista.id}} - {{lista.tarefa}}
+    </li>
+  </ul>

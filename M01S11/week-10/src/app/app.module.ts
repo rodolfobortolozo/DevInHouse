@@ -3,10 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormataCpf } from './formata-cpf.pipe';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent, AppComponent, FormataCpf],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
