@@ -34,3 +34,11 @@ DEVinHouse tem duração de 9 meses: 3 meses por módulo, com intervalo de uma s
 ### Semana: 07
 
 ### Semana: 08
+
+### Semana: 09
+
+### Semana: 10
+
+### Semana: 11
+
+### Semana: 12
