@@ -1,0 +1,27 @@
+<section class="row justify-content-center">
+  <div class="w-50 d-flex flex-column align-items-center">
+	<label
+	  for="validationInput">
+	  Digite uma palavra ou um texto com no mínimo 5 e no máximo 10 caracteres
+	</label>
+	<input
+	  class="w-100 form-control text-center"
+	  type="text"
+	  name="validationInput"
+	  id="validationInput"
+	  [(ngModel)]="inputValidation"
+	  [ngClass]="inputValidation.length > 4 && inputValidation.length < 11 ? 'validInput' : 'invalidInput'"
+	>
+	<p
+	  *ngIf="inputValidation.length > 4 && inputValidation.length < 11; else invalidInput"
+	  class="bg-success w-100 text-center text-white"
+	>
+	  Palavra com tamanho correto!
+	</p>
+	<ng-template #invalidInput>
+	  <p class="bg-danger text-white w-100 text-center">
+		Palavra com tamanho incorreto!
+	  </p>
+	</ng-template>
+  </div>
+</section>

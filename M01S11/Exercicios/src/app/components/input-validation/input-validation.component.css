@@ -1,0 +1,24 @@
+p {
+    border: 1px solid transparent;
+    border-radius: 5px;
+    padding: 0.25rem;
+    margin-top: 0.25rem;
+}
+
+.validInput {
+    border-color: green;
+}
+
+.validInput:focus {
+    border-color: green;
+    box-shadow: 0 0 0 0.2rem rgba(00, 256, 00, 0.25);
+}
+
+.invalidInput {
+    border-color: red;
+}
+
+.invalidInput:focus {
+    border-color: red;
+    box-shadow: 0 0 0 0.2rem rgba(256, 00, 00, 0.25);
+}

@@ -1,0 +1,23 @@
+<section class="text-center">
+  <h2>{{ 'cada palavra terá sua primeira letra maiúscula' | capitalizePhillips }}</h2>
+
+  <form class=" text-center">
+  <textarea
+    class="form-control w-50 mx-auto"
+    #textInput
+    placeholder="Digite um texto"></textarea>
+
+    <button
+      class="btn-primary btn mt-2"
+      type="reset"
+      (click)="textToCapitalize = textInput.value">
+      Capitalizar
+    </button>
+  </form>
+
+  <p *ngIf="textToCapitalize; else noText">{{ textToCapitalize | capitalizePhillips }}</p>
+
+  <ng-template #noText>
+    Digite um texto e clique no botão
+  </ng-template>
+</section>

@@ -1,0 +1,34 @@
+<section class="row align-items-center flex-column">
+	<form class="form w-50 text-center">
+	  <label
+		class="form-label"
+		for="textInput">
+		O que você precisa fazer hoje?
+	  </label>
+	  <input
+		class="form-control"
+		type="text"
+		name="textInput"
+		id="textInput"
+	  	[(ngModel)]="todo">
+	  <button
+		class="btn btn-primary my-3 w-100"
+		type="button"
+	  	(click)="addTodo()">
+		Salvar
+	  </button>
+	</form>
+  	<ol
+	  *ngIf="todoList.length; else emptyTodoList"
+	  class="text-center list-group list-group-numbered w-25 mb-3">
+	  <li
+		*ngFor="let todo of todoList"
+	  	class="list-group-item">
+		{{ todo }}
+	  </li>
+	</ol>
+
+  	<ng-template #emptyTodoList>
+	  <p class="text-center">Você ainda não tem nenhuma tarefa cadastrada hoje!</p>
+	</ng-template>
+</section>

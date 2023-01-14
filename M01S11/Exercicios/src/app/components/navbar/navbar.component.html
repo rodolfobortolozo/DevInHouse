@@ -1,0 +1,62 @@
+<nav class="navbar navbar-dark navbar-expand-lg bg-dark">
+  <div class="container-fluid">
+	<a class="navbar-brand" href="#">Petshop</a>
+	<button
+	  class="navbar-toggler"
+	  type="button"
+	  data-bs-toggle="collapse"
+	  data-bs-target="#navbarNav"
+	  aria-controls="navbarNav"
+	  aria-expanded="false"
+	  aria-label="Toggle navigation">
+	  <span class="navbar-toggler-icon"></span>
+	</button>
+	<div
+	  class="collapse navbar-collapse"
+	  id="navbarNav">
+	  <ul class="navbar-nav">
+		<li class="nav-item">
+		  <a
+			class="nav-link"
+			aria-current="page"
+			[routerLink]="['/']"
+			[attr.aria-current]="page === 'home' ? 'true': 'false'"
+			[ngClass]="page === 'home' ? 'active' : ''"
+		  	(click)="page = 'home'">
+			Home
+		  </a>
+		</li>
+		<li class="nav-item">
+		  <a
+			class="nav-link"
+			[routerLink]="['/']"
+			[attr.aria-current]="page === 'precos' ? 'true' : 'false'"
+			[ngClass]="page === 'precos' ? 'active' : ''"
+			(click)="page = 'precos'">
+			Preços
+		  </a>
+		</li>
+		<li class="nav-item">
+		  <a
+			class="nav-link"
+			[routerLink]="['/']"
+			[attr.aria-current]="page === 'infos' ? 'true' : 'false'"
+			[ngClass]="page === 'infos' ? 'active' : ''"
+			(click)="page = 'infos'">
+			Informações
+		  </a>
+		</li>
+	  </ul>
+	</div>
+  </div>
+</nav>
+
+<div
+  class="text-center"
+  [ngSwitch]="page">
+  <h2 *ngSwitchCase="'home'">Estou na página de Home</h2>
+  <h2 *ngSwitchCase="'precos'">Estou na página de Preços</h2>
+  <h2 *ngSwitchCase="'infos'">Estou na página de Informações</h2>
+</div>
+
+<hr>
