@@ -28,7 +28,7 @@ public class Exercicio02 {
     //b) Imprima o valor da nota do segundo elemento do quarto array de notas.
     System.out.println(notas[3][1]);
     //c) Imprima o valor da soma das quatro primeiras notas de cada array.
-    for (int i = 0; i <= notas.length; i ++ ) {
+    for (int i = 0; i < notas.length; i ++ ) {
       System.out.println(Arrays.stream(notas[i]).sum());
     }
   }

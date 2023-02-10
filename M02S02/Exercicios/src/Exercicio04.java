@@ -32,7 +32,7 @@ public class Exercicio04 {
 
     for(int y=0; y<=qtd-1; y++){
       if (sorteados[i][y] == 25){
-        qtdNumero +=1;
+        qtdNumero ++;
       }
     }
   }

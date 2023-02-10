@@ -20,21 +20,21 @@ public class Exercicio05 {
 
   }
   private static void calcular(int[] numerico){
-  int menor = Integer.MIN_VALUE;
-  int maior = Integer.MAX_VALUE;
+  int menor = Integer.MAX_VALUE;
+  int maior = Integer.MIN_VALUE ;
 
-    if(numerico==null || numerico.length == 1 ){
-      System.out.println("Não é possivel Comparar");
+    if(numerico == null || numerico.length == 0 || numerico.length == 1){
+      System. out.println("Não é possivel Comparar");
       return;
     }
 
     for (int i =0; i<numerico.length; i++){
 
-      if(menor < numerico[i]){
+      if( numerico[i] < menor){
         menor = numerico[i];
       }
 
-      if(maior>numerico[i]){
+      if(numerico[i] > maior ){
         maior = numerico[i];
       }
     }
