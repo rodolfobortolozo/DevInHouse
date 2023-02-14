@@ -22,6 +22,10 @@ public class Exercicio07 {
         
         //B
         nomes.forEach(nome -> System.out.println(nome));
+
+        for (String nome : nomes){
+            System.out.println(nome);
+        }
         
         //C
         while(nomes.size()>y){
