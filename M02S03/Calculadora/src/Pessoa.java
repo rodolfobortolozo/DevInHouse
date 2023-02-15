@@ -1,7 +1,16 @@
 public class Pessoa {
+  String nome;
+  Integer idade;
+  String paisOrigem;
 
-  public void printPessoa(String nome, Integer idade, String paisOrigem){
-    System.out.println("Nome: " + nome + " Idade: " + idade + " País de origem: " + paisOrigem );
+  Pessoa(String nome, Integer idade, String paisOrigem){
+    this.nome = nome;
+    this.idade = idade;
+    this.paisOrigem = paisOrigem;
+  }
+
+  public void printPessoa(){
+    System.out.println("Nome: " + this.nome + " Idade: " + this.idade + " País de origem: " + this.paisOrigem );
 
   }
 }
