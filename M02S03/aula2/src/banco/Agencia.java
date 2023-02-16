@@ -1,14 +1,34 @@
-package banco;
+package banco.repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Agencia {
-    String nomeAgencia;
+    private String nomeAgencia;
     List<Conta> contas = new ArrayList<>();
 
-    Agencia(String nomeAgencia){
+    public Agencia(String nomeAgencia){
         this.nomeAgencia = nomeAgencia;
+    }
+
+    public Agencia(){
+
+    }
+
+    public String getNomeAgencia() {
+        return nomeAgencia;
+    }
+
+    public void setNomeAgencia(String nomeAgencia) {
+        this.nomeAgencia = nomeAgencia;
+    }
+
+    public List<Conta> getContas() {
+        return contas;
+    }
+
+    public void setContas(List<Conta> contas) {
+        this.contas = contas;
     }
 
     @Override
