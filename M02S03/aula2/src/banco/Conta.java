@@ -1,6 +1,4 @@
-package banco.repository;
-
-import banco.Cliente;
+package banco;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,19 +25,13 @@ public class Conta {
 
     }
 
-    public void addConta(Conta conta){
-        arrConta.add(conta);
-    }
 
-    public void retornoConta(){
-        arrConta.forEach(elment -> System.out.println(elment.toString()));
-    }
     public Integer getId() {
         return id;
     }
 
-    public void setId() {
-        this.id = arrConta.size() +1;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getNomeConta() {

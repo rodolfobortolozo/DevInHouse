@@ -1,4 +1,4 @@
-package banco.repository;
+package banco;
 
 import java.util.ArrayList;
 import java.util.List;

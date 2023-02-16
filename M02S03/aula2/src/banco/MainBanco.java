@@ -1,5 +1,7 @@
 package banco;
 
+import repository.ContaRepository;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -9,55 +11,44 @@ public class MainBanco {
 
     public static void main(String[] args) throws IOException {
 
-        String nome;
-        String cpf;
-        String nomeConta;
-        int idade;
-        Double saldoConta;
-        Integer nroConta;
-
         Agencia agencia = new Agencia("Agencia Laranja");
+        ContaRepository contaRepository = new ContaRepository();
 
-        for (int i=0; i<5; i++){
+
+        for (int i=0; i<3; i++){
+        Cliente cliente = new Cliente();
+        Conta conta = new Conta();
 
             Scanner scanner = new Scanner(System.in);
 
             InputStreamReader isr = new InputStreamReader(System.in);
             BufferedReader br = new BufferedReader(isr);
 
-            //System.out.println("Digite algo:");
-            //String read = br.readLine();
-
-            //System.out.println(read);
-
+            System.out.println("----------------------------------------");
             System.out.print("Informe o nome do cliente:");
-            nome = br.readLine();
+            cliente.setNomeCliente(br.readLine());
 
             System.out.print("Informe o cpf do cliente:");
-            cpf = br.readLine();
+            cliente.setCpfCliente(br.readLine());
 
             System.out.print("Informe a idade do cliente:");
-            idade = scanner.nextInt();
+            cliente.setIdadeCliente(scanner.nextInt());
 
             System.out.print("Informe o nome da conta:");
-            nomeConta = br.readLine();;
+            conta.setNomeConta(br.readLine());
 
             System.out.print("Informe o Saldo:");
-            saldoConta = scanner.nextDouble();
+            conta.setSaldoConta(scanner.nextDouble());
 
             System.out.print("Informe o NroConta:");
-            nroConta = scanner.nextInt();
+            conta.setNumeroConta(scanner.nextInt());
 
-            Cliente cliente = new Cliente(nome, cpf, idade);
+            conta.setCliente(cliente);
 
-            Conta conta = new Conta(nomeConta, saldoConta, nroConta, cliente, agencia);
-
-            System.out.println(agencia);
-            System.out.println(cliente);
-            System.out.println(conta);
-
-
+            contaRepository.addConta(conta);
 
         }
+
+        contaRepository.retornoConta();
     }
 }
