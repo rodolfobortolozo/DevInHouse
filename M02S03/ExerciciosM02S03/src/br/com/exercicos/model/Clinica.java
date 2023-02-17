@@ -88,6 +88,27 @@ public class Clinica {
     public Clinica() {
     }
 
+    public Double calculaIMC(Double altura, Double peso){
+        return peso / Math.pow(altura,2d);
+    }
+
+    public void tabelaIMC(Double altura, Double peso){
+
+        if(calculaIMC(altura,peso)<=18.5) {
+            System.out.println("Abaixo do peso");
+        }else if (calculaIMC(altura,peso)<=24.0) {
+            System.out.println("Peso ideal");
+        } else if (calculaIMC(altura,peso)<=29.9) {
+            System.out.println("Levemente acima do peso");
+        } else if (calculaIMC(altura,peso)<=34.9) {
+            System.out.println("Obesidade grau I");
+        } else if (calculaIMC(altura,peso)<=39.9) {
+            System.out.println("Obesidade grau II");
+        } else if (calculaIMC(altura,peso)>=40) {
+            System.out.println("Obesidade grau III");
+        }
+    }
+
     @Override
     public String toString() {
         return "ClinicaModel{" +
