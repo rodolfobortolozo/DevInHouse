@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario</title>
+</head>
+<body>
+  <form action="#"
+        th:action="@{/formulario}"
+        th:object="${pessoaDto}"
+        method="post">
+    <label for="name" >Name</label>
+      <input type="text" th:field="*{nome}"  id="name" placeholder="Name">
+    <label for="idade" >Idade</label>
+      <input type="text" th:field="*{idade}"  id="idade" placeholder="Idade">
+      <!--    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="text-danger">-->
+<!--      -->
+<!--    </span>-->
+
+      <input type="submit" value="Add Pessoa">
+
+  </form>
+</body>
+</html>

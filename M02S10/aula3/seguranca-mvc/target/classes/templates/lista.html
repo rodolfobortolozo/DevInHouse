@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Produto</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Handlee&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <div class="card mb-3" th:each="produto : ${produtos}">
+        <div class="card-header" th:text="${produto.nome}">Nome do Produto</div>
+        <div class="card-body">
+            <div th:text="${produto.descricao}" ></div>
+            <div th:text="${produto.valor}" ></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

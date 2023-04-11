@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista Pessoas</title>
+</head>
+<body>
+<div>
+    <div th:each="pessoaDto: ${pessoaDtos}">
+        <div th:text="${pessoaDto.nome}"></div>
+        <div th:text="${pessoaDto.idade}"></div>
+    </div>
+</div>
+
+</body>
+</html>

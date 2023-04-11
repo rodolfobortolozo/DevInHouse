@@ -1,0 +1,6 @@
+#FileLock
+#Mon Apr 03 21:54:05 BRT 2023
+hostName=machine
+id=18749c1b87408667d7c365648c6afb4a5ac6d1e02fc
+method=file
+server=192.168.15.6\:59581

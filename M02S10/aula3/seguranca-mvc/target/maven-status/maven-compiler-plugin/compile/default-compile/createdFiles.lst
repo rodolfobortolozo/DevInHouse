@@ -1,0 +1,9 @@
+com\example\demo\DemoApplication.class
+com\example\demo\repository\ProdutoRepository.class
+com\example\demo\config\WebSecurityConfig.class
+com\example\demo\controller\ProdutoController.class
+com\example\demo\HelloController.class
+com\example\demo\service\ProdutoService.class
+com\example\demo\model\Produto.class
+com\example\demo\controller\LoginController.class
+com\example\demo\controller\dto\NovoProdutoDto.class
