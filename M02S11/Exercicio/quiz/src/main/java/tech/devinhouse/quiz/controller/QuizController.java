@@ -1,5 +1,6 @@
 package tech.devinhouse.quiz.controller;
 
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -28,25 +29,25 @@ public class QuizController {
     }
 
     @GetMapping(path = "/{id}")
-    public ResponseEntity<Object> getQuizById(@PathVariable(value = "id") Long id) {
+    public ResponseEntity<Object> getQuizById(@Valid  @PathVariable(value = "id") Long id) {
        return this.quizService.getById(id);
     }
 
     @PostMapping()
-    public ResponseEntity<Object> saveQuiz(@RequestBody QuizRequest quizrRequest) {
+    public ResponseEntity<Object> saveQuiz(@Valid @RequestBody QuizRequest quizrRequest) {
 
         return this.quizService.saveQuiz(quizrRequest);
     }
 
     @PutMapping(path = "/{id}")
-    public ResponseEntity<Object> updatePergunta(@PathVariable(value = "id") Long id,
+    public ResponseEntity<Object> updatePergunta(@Valid @PathVariable(value = "id") Long id,
             @RequestBody QuizRequest quizRequest) {
 
         return this.quizService.updatePergunta(id, quizRequest);
     }
 
     @DeleteMapping(path = "/{id}")
-    public ResponseEntity<Object> deleteById(@PathVariable(value = "id") Long id) {
+    public ResponseEntity<Object> deleteById(@Valid @PathVariable(value = "id") Long id) {
         return this.quizService.deleteQuiz(id);
     }
 

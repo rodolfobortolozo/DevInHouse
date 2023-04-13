@@ -92,5 +92,10 @@ public class RespostaService {
         return ResponseEntity.status(HttpStatus.OK).body(null);
     }
 
+    public ResponseEntity<Object> getbyPerguntaId(Long id){
+        List<Pergunta> pergunta = this.perguntaRepository.findPerguntaByQuizId(id);
+        return ResponseEntity.status(HttpStatus.OK).body(pergunta);
+    }
+
 
 }
