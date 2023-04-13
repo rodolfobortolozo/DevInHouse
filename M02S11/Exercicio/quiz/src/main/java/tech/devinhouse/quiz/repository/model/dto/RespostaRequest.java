@@ -7,7 +7,6 @@ import java.util.List;
 @Data
 public class RespostaRequest {
 
-    private Long id;
     private String texto;
-    private List<PerguntaRequest> perguntas;
+    private Long idPergunta;
 }

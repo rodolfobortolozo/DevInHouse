@@ -8,7 +8,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.util.List;
 
-@Entity(name = "PERGUNTAS")
+@Entity
+@Table(name = "PERGUNTAS")
 @Data
 public class Pergunta {
 
@@ -23,13 +24,9 @@ public class Pergunta {
     @Column(name = "TEXTO")
     private String texto;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "IDQUIZ")
     private Quiz quiz;
-
-    @JsonIgnore
-    @ManyToAny(fetch = FetchType.EAGER)
-    @JoinTable(name = "PERGUNTA_RESPOSTAS", joinColumns = @JoinColumn(name = "IDPERGUNTA"), inverseJoinColumns = @JoinColumn(name = "IDRESPOTA"))
-    private List<Resposta> perguntas;
 
 }

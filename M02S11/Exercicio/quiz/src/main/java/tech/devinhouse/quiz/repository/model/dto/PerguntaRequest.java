@@ -7,5 +7,5 @@ public class PerguntaRequest {
 
     private String titulo;
     private String texto;
-    private Long quiz;
+    private Long idQuiz;
 }

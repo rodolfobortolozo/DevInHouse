@@ -24,59 +24,30 @@ public class QuizController {
 
     @GetMapping
     public ResponseEntity<Object> getAllQuiz() {
-        List<Quiz> quizzes = this.quizService.getAll();
-
-        if (quizzes.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.OK).body("Nenhum Quiz Cadastrado");
-        }
-        return ResponseEntity.status(HttpStatus.OK).body(quizzes);
+        return this.quizService.getAll();
     }
 
     @GetMapping(path = "/{id}")
     public ResponseEntity<Object> getQuizById(@PathVariable(value = "id") Long id) {
-        Optional<Quiz> quiz = this.quizService.getById(id);
-
-        if (quiz.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Nenhum Quiz Cadastrado");
-        }
-        return ResponseEntity.status(HttpStatus.OK).body(quiz);
+       return this.quizService.getById(id);
     }
 
     @PostMapping()
     public ResponseEntity<Object> saveQuiz(@RequestBody QuizRequest quizrRequest) {
 
-        Quiz quiz = QuizMapper.INSTANCE.reqToQuiz(quizrRequest);
-
-        Quiz newQuiz = this.quizService.saveQuiz(quiz);
-
-        return ResponseEntity.status(HttpStatus.CREATED).body(newQuiz);
+        return this.quizService.saveQuiz(quizrRequest);
     }
 
     @PutMapping(path = "/{id}")
     public ResponseEntity<Object> updatePergunta(@PathVariable(value = "id") Long id,
             @RequestBody QuizRequest quizRequest) {
 
-        Optional<Quiz> opQuiz = this.quizService.getById(id);
-        Quiz quiz = QuizMapper.INSTANCE.reqToQuiz(quizRequest);
-
-        if (opQuiz.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Nenhum Quiz Cadastrado");
-        }
-
-        quiz.setId(id);
-        Quiz newQuiz = this.quizService.saveQuiz(quiz);
-        return ResponseEntity.status(HttpStatus.CREATED).body(newQuiz);
+        return this.quizService.updatePergunta(id, quizRequest);
     }
 
     @DeleteMapping(path = "/{id}")
     public ResponseEntity<Object> deleteById(@PathVariable(value = "id") Long id) {
-        Optional<Quiz> quiz = this.quizService.getById(id);
-
-        if (quiz.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Nenhum Quiz Cadastrado");
-        }
-        this.quizService.deleteQuiz(id);
-        return ResponseEntity.status(HttpStatus.OK).body(null);
+        return this.quizService.deleteQuiz(id);
     }
 
 }

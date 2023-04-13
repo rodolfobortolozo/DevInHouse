@@ -7,4 +7,5 @@ public class QuizRequest {
 
     private String nome;
     private String descricao;
+
 }
