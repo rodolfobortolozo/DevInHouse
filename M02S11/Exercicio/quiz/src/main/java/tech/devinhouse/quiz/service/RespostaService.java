@@ -1,8 +1,12 @@
 package tech.devinhouse.quiz.service;
 
+import jakarta.persistence.EntityNotFoundException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.HttpClientErrorException;
 import tech.devinhouse.quiz.mapper.RespostaMapper;
 import tech.devinhouse.quiz.repository.PerguntaRepository;
 import tech.devinhouse.quiz.repository.RespostaRepository;
@@ -24,13 +28,14 @@ public class RespostaService {
         this.respostaRepository = respostaRepository;
     }
 
-    public ResponseEntity<Object> getAll(){
+    public ResponseEntity<Object> getAll(Pageable pageable){
 
-        List<Resposta> resposta = this.respostaRepository.findAll();
+        Page<Resposta> resposta = this.respostaRepository.findAll(pageable);
 
-        if (resposta.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.OK).body("Nenhuma Resposta Cadastrada");
-        }
+            if (resposta.isEmpty()) {
+                throw new EntityNotFoundException();
+            }
+
         return ResponseEntity.status(HttpStatus.OK).body(resposta);
     }
 

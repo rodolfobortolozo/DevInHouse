@@ -1,12 +1,15 @@
 package tech.devinhouse.quiz.controller;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import tech.devinhouse.quiz.repository.model.dto.PerguntaRequest;
 import tech.devinhouse.quiz.service.PerguntaService;
 
+@Tag(name = "Pergunta", description = "Tutorial Pergunta APIs")
 @RestController
 @RequestMapping("/perguntas")
 public class PerguntaController {
@@ -18,8 +21,8 @@ public class PerguntaController {
     }
 
     @GetMapping
-    public ResponseEntity<Object> getAllPerguntas() {
-        return this.perguntaService.getAll();
+    public ResponseEntity<Object> getAllPerguntas(Pageable pageable) {
+        return this.perguntaService.getAll(pageable);
     }
 
     @GetMapping(path = "/{id}")

@@ -1,5 +1,7 @@
 package tech.devinhouse.quiz.service;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -22,8 +24,8 @@ public class QuizService {
         this.quizRepository = quizRepository;
     }
 
-    public ResponseEntity<Object> getAll(){
-        List<Quiz> quizzes = this.quizRepository.findAll();
+    public ResponseEntity<Object> getAll(Pageable pageable){
+        Page<Quiz> quizzes = this.quizRepository.findAll(pageable);
 
         if (quizzes.isEmpty()) {
             return ResponseEntity.status(HttpStatus.OK).body("Nenhum Quiz Cadastrado");
