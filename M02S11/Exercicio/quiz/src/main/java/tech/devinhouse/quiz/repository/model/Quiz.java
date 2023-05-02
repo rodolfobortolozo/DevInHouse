@@ -7,11 +7,12 @@ import java.util.Set;
 import jakarta.persistence.*;
 import jakarta.validation.OverridesAttribute.List;
 import lombok.Data;
+import org.springframework.hateoas.RepresentationModel;
 
 @Entity
 @Table(name = "QUIZ")
 @Data
-public class Quiz {
+public class Quiz  extends RepresentationModel<Quiz> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

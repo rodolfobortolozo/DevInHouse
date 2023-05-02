@@ -11,6 +11,7 @@ import io.swagger.v3.oas.models.info.Contact;
 import io.swagger.v3.oas.models.info.Info;
 import io.swagger.v3.oas.models.info.License;
 import io.swagger.v3.oas.models.servers.Server;
+
 @Configuration
 public class OpenAPIConfig {
   @Value("${openapi.dev-url}")
@@ -40,10 +41,12 @@ public class OpenAPIConfig {
             .title("Tutorial Quiz Api")
             .version("1.0")
             .contact(contact)
-            .description("This API exposes endpoints to manage tutorials.").termsOfService("https://www.bezkoder.com/terms")
+            .description("Api Referente ao Módulo 02 Semana 11 da DevInHouse").termsOfService("https://www.bezkoder.com/terms")
             .license(mitLicense)
-            .summary("asdasdasd");
+            .summary("Ativades de Spring Boot");
 
-    return new OpenAPI().info(info).servers(List.of(devServer, prodServer));
+    return new OpenAPI()
+            .info(info)
+            .servers(List.of(devServer, prodServer));
   }
 }
