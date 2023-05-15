@@ -1,0 +1,47 @@
+<form #formulario="ngForm" (ngSubmit)="enviarForm()">
+  <div class="row">
+    <div class="col-4">
+      <input type="text"
+             class="form-control"
+             placeholder="Titulo"
+             name="titulo"
+             #titulo="ngModel"
+             [(ngModel)]="novaNotificacao.titulo"
+             [ngClass]="{
+              'is-invalid': titulo.invalid && titulo.touched
+             }"
+             required
+             />
+
+      <div *ngIf="titulo.touched && titulo.invalid" class="invalid-feedback">
+          <div *ngIf="titulo?.errors">Campo obrigatório</div>
+      </div>
+
+    </div>
+    <div class="col-4">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Descrição"
+        required
+        name="descricao"
+        #name="ngModel"
+        [(ngModel)]="novaNotificacao.descricao"
+        [ngClass]="{
+          'is-invalid': name.invalid && name.touched
+        }"
+      />
+      <div *ngIf="name.touched && titulo.invalid" class="invalid-feedback">
+        <div *ngIf="titulo?.errors">Campo obrigatório</div>
+      </div>
+    </div>
+    <div class="col-4">
+      <button
+        [disabled]="!formulario.valid"
+        class="btn btn-primary"
+        type="submit">
+        Adicionar
+      </button>
+    </div>
+  </div>
+</form>
