@@ -1,0 +1,157 @@
+Na última aula avançamos em alguns conceitos importantes dentro do docker como Volumes (para persistência de dados)
+
+____ VOLUMES ___
+
+podemos criar um volume nomeado através do comando:
+
+docker volume create nomeVolume
+
+após criarmos podemos vincular esse volume a um container. Veremos mais pra frente. 
+
+Para removermos um volume nomeado o comando é:
+
+docker volume rm nomeVolume
+
+Outro volume possível é bind volume. Nesse modo fazemos um espelhamento bidirecional de uma pasta do host (nosso computador) para uma pasta dentro do container. Exemplo:
+
+-v C:\Users\gabriel.ti\db:/var/lib/mysql
+
+C:\Users\gabriel.ti\db >> pasta do host
+ 
+/var/lib/mysql >> pasta dentro do container
+
+esse parâmetro "-v" passamos no comando docker run. 
+
+
+fizemos uma demonstração em aula da importância de se trabalhar com volumes quando queremos persistir os dados. Usei o exemplo de um banco Mysql onde criei o container, acessei via Mysql Workbench e criei um banco chamado philips. Posteriormente, fiz e exclusão desse container e em seguida subi outro exatamente igual ao anterior. Porém, os dados não estavam mais lá. 
+
+banco em mysql sem persistencia de dados:
+
+docker run --name banco -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=rootdb__ mysql:5.7.24
+
+criei em seguida um banco em MYSQL com persistência através de volumes nomeados. Container ficou:
+
+docker run --name banco -d -p 3306:3306 -v philips:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=rootdb__ mysql:5.7.24
+
+
+
+____ CONTAINER BANCO ORACLE ____
+
+
+vimos que o ponto de partida para usar um banco de dados oracle em container seria acessar o repositório de imagens próprio da Oracle (e não do docker hub):
+
+1° https://container-registry.oracle.com/ords/f?p=113:10::::::
+
+2° depois vamos em "Database"
+
+3° seleciona a versão (em aula usei Enterprise)
+
+4° nessa página temos toda a documentação da imagem. Para executarmos o container precisamos ter conta criada em oracle.com e aceitar os termos. Basta clicar em "Sig in" no canto direito superior, fazer login, clicar em "aceitar os termos" e aí sim executar o container (recomendo subir com volume persistente):
+
+
+
+ docker run --shm-size 2.7G -e INIT_SGA_SIZE=580 -e INIT_PGA_SIZE=900 -v C:\Users\gabriel.ti\oracle-docker\volume:/opt/oracle/oradata -p 1521:1521 -p 5500:5500 container-registry.oracle.com/database/enterprise:21.3.0.0
+
+
+
+obs: --shm-size 2.7G -e INIT_SGA_SIZE=580 -e INIT_PGA_SIZE=900
+são parâmetros opcionais. Podem modificar de acordo com os recursos computacionais do computador de vocês. 
+
+outra opção de execução do container com Oracle seria informar a senha do banco acrescentando o -e ORACLE_PWD=<sua senha>. 
+
+a opção que mostrei em aula foi com o comando "docker exec". Ficou assim:
+
+docker exec <oracle-db> ./setPassword.sh <your_password>
+
+acessando o oracle express no navegador:
+
+https://localhost:5500/em/shell
+
+
+Vocês também podem adicionar uma conexão no SQL DEVELOPER apontando para o container. 
+
+
+
+____ NETWORK ___
+
+criarmos uma rede em comum para dois ou mais containers é útil para garantirmos a comunicação entre eles pelo nome do container que é imutável, diferente do IP; Para criamos uma network o comando é:
+
+docker network create philips
+
+docker network ls > lista as redes locais no docker
+
+
+usamos como exemplo o container do ADMINER comunicando com o container do POSTGRES. Inicialmente subimos os container sem rede em comum. Ficou:
+
+docker run -d --name adminer -p 8080:8080 adminer
+
+docker run --name postgres -p 5432:5432 -e POSTGRES_PASSWORD=password -d postgres
+
+acessando em localhost:8080 temos o Adminer em operação e podemos logar no banco postgres. (host é postgres, pois foi o nome dado ao container com banco, usuário padrão é postgres, senha "password" e banco é postgres)
+
+vimos que não foi possível conectar... o container do adminer desconhece host "postgres". A conexão funciona se em server colocarmos o IP do container Postgres. Então, vamos vincular aos containers a rede philips criada:
+
+docker network connect philips postgres 
+docker network connect philips adminer
+
+sem essa network em comum o acesso ao banco pelo nome não seria possível. Teríamos que informar o IP do container. 
+
+outra forma seria criar os containers já mencionanod a network. Ficaria:
+
+
+docker run -d --name adminer --network=philips -p 8080:8080 adminer
+
+docker run --name postgres --network=philips -p 5432:5432 -e POSTGRES_PASSWORD=password -d postgres
+
+
+
+____ PHP-APACHE-MYSQL _____
+
+.zip do projeto: https://drive.google.com/file/d/1aYRoo1U0baopsTeeonZF-vC-PubYrVe9/view?usp=sharing
+
+para a aplicação em php o container para execução com persistência de dados seria: 
+
+docker run --name php -d -p 8080:80 --network=philips -v C:\Users\gabriel.ti\projeto:/var/www/html/projeto php:7.4-apache
+
+na prática, esse bind volume está sendo usado para espelhar o código fonte da aplicação que está na pasta projeto do host. 
+
+o container do banco mysql ficaria:
+
+docker run --name banco -d --network=philips -p 3306:3306 -v C:\Users\gabriel.ti\db-web:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=rootdb__ mysql:5.7.24
+
+
+se optarmos por volume nomeado ficaria:
+docker run --name banco -d -p 3306:3306 -v philips:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=rootdb__ mysql:5.7.24
+
+na prática, quando o container startar pela primeira vez, ele criará a estrutura do banco no diretório padrão do mysql em /var/lib/mysql e fará um espelhamento para pasta do host C:\Users\gabriel.ti\db-web (ou para o volume "philips"). Quando o próximo container for executar esse mesmo docker run encontrará toda a estrutura deixada pelo container anterior e assim a persistência de dados será mantida. 
+
+
+Vimos que para a aplicação em php comunicar com o banco era necessário instalar uma função (mysqli) dentro do container. Com isso aprendemos como acessar o terminal de um container (muito útil):
+
+docker exec -it nomeContainer /bin/bash
+-it: parâmetro interative terminal
+
+em nosso exemplo ficou: docker exec -it php /bin/bash
+
+uma vez dentro do container podemos rodar o comando de instalação da função:
+docker-php-ext-install mysqli
+
+poderíamos ter enviado o comando de instalação diretamente sem acessar o container, ficando:
+docker exec php docker-php-ext-install mysqli
+
+
+posteriormente vimos que era necessário também copiar o arquivo de configuração do PHP, o php.ini. Com isso vimos um novo comando possível para cópia:
+docker cp host_file_directory container_name:/container_file_directory.
+
+no nosso exemplo ficou:
+
+docker cp C:\Users\gabriel.ti\Desktop\php.ini web:/usr/local/etc/php
+
+
+__ docker inspect ___
+
+usamos para detalhar um recurso, podendo ser um volume, container, imagem etc...
+
+docker inspect web  >> detalha o container de nome web
+docker inspect volume edp  >> detalha o volume edp
+

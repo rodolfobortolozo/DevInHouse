@@ -1,0 +1,59 @@
+docker ps -a
+
+docker run -e MYSQL_ROOT_PASSWORD=root -d --name banco_mysql -p 3306:3306 mysql:5.7.24
+
+docker logs banco_mysql
+
+
+Criação de Volumes
+
+docker volume create philips
+
+-- volume
+docker volume ls
+
+docker run -e MYSQL_ROOT_PASSWORD=root -d --name banco_mysql -v philips:/var/lib/mysql -p 3306:3306 mysql:5.7.24
+
+
+docker volume inspect philips
+
+--Bidingo Volume
+
+docker run -e MYSQL_ROOT_PASSWORD=root -d --name banco_mysql -v E:\folder_docker:/var/lib/mysql -p 3306:3306 mysql:5.7.24
+
+docker volume rm philips
+
+--
+
+https://container-registry.oracle.com/ords/f?p=113:10:5674967500012:::::
+
+docker pull container-registry.oracle.com/database/free:latest
+
+docker run --name oracle_docker -p 1521:1521 -e ORACLE_PWD=0r4cl3Cl0ud -e ORACLE_CHARACTERSET=WE8ISO8859P1 -v E:\docker_oracle1:/opt/oracle/oradata container-registry.oracle.com/database/free:latest
+
+--
+networks
+
+docker network ls
+
+docker network create philips
+
+docler network ls
+
+#exemplo
+docker run --name adminer -d --network=philips -p 8080:8080
+docker run --name postgres -d --network=philips -p 5432:5432
+
+#Adcionar os container nas rede em execusão
+docker network connect philips adminer postgres
+
+docker network rm philips
+
+##
+docker exec it "container" /bin/bash  --sem aspas
+
+##copiar arquivos para dentro do container
+
+docker cp c:\teste.txt "container":/usr/local/etc -- sem aspas
+
+docker cp "container":/usr/local/etc/php.ini c:\

@@ -1,0 +1,38 @@
+Olá pessoal!! 
+ontem introduzimos o tema virtualização sobretudo a virtualização de microserviços. Falamos das vantagens dessa tecnologia e posteriormente ingressamos no Docker. Após instalarmos o Docker começamos a trabalhar com containers, camada mais básica de trabalho no docker. Baixamos nossa primeira imagem do docker hub e criamos o primeiro container a partir da imagem. 
+
+Depois vimos outros parâmetros possíveis a serem passados no momento da criação do container, como especificação de porta e versão da imagem. Abaixo, deixo os comandos utilizados em aula:
+
+1° docker pull nomeImagemDockerHub  > faz o download da imagem do docker hub para repositório local
+
+docker pull httpd > baixa imagem mais atual do apache
+
+2° docker run nomeImagem:tag > cria e executa um container da imagem informada. Se a imagem não estiver no repositório local, será feito download imediatamente e depois container será executado.
+ 
+docker run httpd > executa servidor apache em primeiro plano
+
+3° docker images > listar as imagens locais
+
+4° docker ps > listar os containers em execução
+
+5° docker ps -a > lista todos os containers, em execução ou não
+
+6° docker run -d -p 8080:80 httpd:2.4
+  
+-d: executa o container em segundo plano (modo daemon)
+2.4: versão do apache no docker hub
+-p: tag relacionada a abertura de portas 
+8080: porta do host
+80: porta do container
+
+acessando o endereco http://localhost:8080 no navegador é possível visualizar a mensagem de execução do apache. 
+
+docker stop nomeContainer > para o container especificado
+
+docker start nomeContainer > inicia o container especificado
+
+docker rm nomeContainer (ou ID Container)  > para remover um container com status encerrado
+
+docker rm -f nomeContainer (ou ID Container) > para remover de forma forçada um container em execução.
+
+com isso o container excluído não aparecerá mais em "docker ps -a"
