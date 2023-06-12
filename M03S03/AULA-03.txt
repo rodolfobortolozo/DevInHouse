@@ -1,0 +1,77 @@
+___ Dockerfile ____
+
+falamos sobre o que é o Dockerfile e começamos a ver alguns comandos que podem aparecer dentro dele. O que fizemos foi referente a aplicação com PHP+APACHE:
+
+FROM php:7.4-apache
+RUN docker-php-ext-install mysqli
+ADD php.ini /usr/local/etc/php
+copy /projeto /var/www/html/projeto
+
+
+para criarmos a imagem a partir desse Dockerfile executamos o comando:
+
+docker build -t php-philips:1.0 .  >> compila o Dockerfile que está no diretório corrente passando um nome e versão para imagem gerada.
+
+Para subir o container com a imagem gerada, usamos:
+docker run -d -p 8080:80 php-philips:1.0
+
+com container em execução podemos constatar que temos um container com o php na versão 7.4 com apache já devidamente configurado para nossa aplicação, com função mysqli instalada e arquivo php.ini copiado.
+
+
+___ JAVASCRIPT - NODE ___
+
+link do .zip com projeto de exemplo: https://drive.google.com/file/d/1dmJKzr6Ugd2Ge5UFuu6My4YGpk-qdFzG/view?usp=sharing
+
+Dockerfile:
+
+FROM node:alpine
+WORKDIR /usr/app
+COPY package*.json ./
+RUN npm install
+COPY . .
+EXPOSE 3000
+cmd npm start
+
+
+dando build : docker build -t philips-node:1.0 . 
+
+executando container: 
+
+docker run --rm -p 3000:3000 philips-node:1.0
+
+--rm >>> container será removido após encerramento. Com isso ele não será listado no "docker ps -a"
+
+
+acessando no navegador: localhost:3000
+
+
+___ docker push ___ 
+
+com ele podemos enviar nossa imagem criada localmente para o hub da docker e compartilhar ela publicamente. Primeiramente, devemos ter uma conta no Docker Hub e efetuar login na plataforma com o comando:
+
+docker login
+
+enviar imagem para docker hub:
+
+docker push Nome_Usuario_Docker_Hub/nome_Imagem:tag
+
+se imagem não estiver nomeada no padrão com nome de usuário do docker hub:
+
+docker tag ID_IMAGEM Nome_Usuario_Docker_Hub/nome_Imagem:tag
+
+agora executar o docker push..
+
+para ficar disponível publicamente ele deve ser configurada dentro do site Docker Hub para public ao invés de private, como default. 
+
+publiquei a imagem do exemplo de PHP-APACHE. Segue comandos de download:
+
+- docker pull bielguimaraes94/php-philips:1.0
+ 
+     docker run -d -p 8080:80 bielguimaraes94/php-philips:1.0
+      acessando em http://localhost:8080/projeto/refeitorio.php
+
+
+
+
+
+
